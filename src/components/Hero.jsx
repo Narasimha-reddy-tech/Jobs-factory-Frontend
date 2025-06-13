@@ -6,7 +6,8 @@ const Hero = () => {
             <div className="container d-flex " style={{ marginTop: '150px' }}>
                 <div className="row">
                     <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6">
-                        <img style={{ height: '500px', width: '600px' }} src="/assets/Screenshot 2025-04-30 124759.png" alt="" />
+                        {/* <img style={{ height: '500px', width: '600px' }} src="/public/assets/Screenshot 2025-04-30 124759.png" alt="" /> */}
+                        <img style={{ height: '500px', width: '600px' }} src="/public/assets/Screenshot 2025-04-30 124759.png" alt="" />
                     </div>
                     <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6">
                         <div style={{ margin: '90px 80px' }}>

@@ -9,7 +9,6 @@ const JobCardList = () => {
     useEffect(() => {
         const fetchJobs = async () => {
             try {
-                // const response = await fetch("http://localhost:3000/cardDetails");
                 const response = await fetch(`${import.meta.env.VITE_DB_RENDER}/cardDetails`);
                 const data = await response.json();
                 const sortedData = data.sort((a, b) => new Date(b.posted) - new Date(a.posted));
@@ -21,7 +20,6 @@ const JobCardList = () => {
 
         fetchJobs();
     }, []);
-
 
     const filteredJobs = jobList.filter((job) =>
         job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -44,46 +42,50 @@ const JobCardList = () => {
     };
 
     return (
-        <div>
+        <div className="container">
             {/* Search Input */}
-            <div className="input-group  " style={{ maxWidth: '600px', margin: '60px 0px 50px 70px' }} >
-                <input
-                    type="text"
-                    className="form-control shadow-sm fw-semibold text-muted fs-5"
-                    placeholder="Job title or Company"
-                    value={searchTerm}
-                    onChange={handleSearchChange}
-                />
-                <button className="btn btn-primary shadow-sm fw-bold" type="button" style={{ width: '100px' }}>
-                    Search
-                </button>
+            <div className="row justify-content-center mt-5">
+                <div className="col-12 col-md-8 my-4 col-lg-6">
+                    <div className="input-group shadow-sm">
+                        <input
+                            type="text"
+                            className="form-control fw-semibold text-muted fs-5"
+                            placeholder="Job title or Company"
+                            value={searchTerm}
+                            onChange={handleSearchChange}
+                        />
+                        <button className="btn btn-primary fw-bold" type="button">
+                            Search
+                        </button>
+                    </div>
+                </div>
             </div>
 
             {/* Job Cards */}
-            <div>
+            <div className="mt-4">
                 {paginatedJobs.length > 0 ? (
                     paginatedJobs.map((job) => (
                         <JobCard key={job.id} job={job} />
                     ))
                 ) : (
-                    <p className="text-center text-muted fs-4">No matching jobs found, Please enter a valid keyword</p>
+                    <p className="text-center text-muted fs-4 mt-4">No matching jobs found. Please enter a valid keyword.</p>
                 )}
             </div>
 
             {/* Pagination */}
             {totalPages > 1 && (
-                <nav aria-label="Page navigation" style={{ margin: '100px 180px' }}>
+                <nav aria-label="Page navigation" className="d-flex justify-content-center mt-5 mb-5">
                     <ul className="pagination">
                         <li className={`page-item ${page === 1 ? 'disabled' : ''}`}>
-                            <a className="page-link" href="#" onClick={(e) => { e.preventDefault(); handlePageChange(page - 1); }}>Previous</a>
+                            <button className="page-link" onClick={() => handlePageChange(page - 1)}>Previous</button>
                         </li>
                         {[...Array(totalPages)].map((_, i) => (
                             <li key={i} className={`page-item ${page === i + 1 ? 'active' : ''}`}>
-                                <a className="page-link" href="#" onClick={(e) => { e.preventDefault(); handlePageChange(i + 1); }}>{i + 1}</a>
+                                <button className="page-link" onClick={() => handlePageChange(i + 1)}>{i + 1}</button>
                             </li>
                         ))}
                         <li className={`page-item ${page === totalPages ? 'disabled' : ''}`}>
-                            <a className="page-link" href="#" onClick={(e) => { e.preventDefault(); handlePageChange(page + 1); }}>Next</a>
+                            <button className="page-link" onClick={() => handlePageChange(page + 1)}>Next</button>
                         </li>
                     </ul>
                 </nav>

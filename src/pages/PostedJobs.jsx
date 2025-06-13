@@ -7,14 +7,13 @@ const PostedJobs = () => {
   useEffect(() => {
     const fetchPostedJobs = async () => {
       try {
-        // const res = await fetch("http://localhost:3000/cardDetails");
         const res = await fetch(`${import.meta.env.VITE_DB_RENDER}/cardDetails`);
         const data = await res.json();
-        const userPostedJobs = data.filter(job => job.created_by)
+        const userPostedJobs = data
+          .filter(job => job.created_by)
           .sort((a, b) => new Date(b.posted) - new Date(a.posted));
 
         setPostedJobs(userPostedJobs);
-
       } catch (error) {
         console.error(error.name);
       }
@@ -23,16 +22,11 @@ const PostedJobs = () => {
     fetchPostedJobs();
   }, []);
 
-  // Handling Delete
   const handleDelete = async (id) => {
     try {
-      // const res = await fetch(`http://localhost:3000/cardDetails/${id}`, {
-
       const res = await fetch(`${import.meta.env.VITE_DB_RENDER}/cardDetails/${id}`, {
         method: 'DELETE',
       });
-
-      console.log('Delete response:', res);
 
       if (res.ok) {
         setPostedJobs(postedJobs.filter(job => job.id !== id));
@@ -42,28 +36,35 @@ const PostedJobs = () => {
     } catch (error) {
       console.error(error.name);
     }
-  }
+  };
 
   return (
-    <div className="container my-5">
+    <div className="container my-5 px-3 px-md-4">
       <h2 className="text-center mb-4">Your Posted Jobs</h2>
-      {postedJobs.length > 0 ? (
-        postedJobs.map(job => (
-          <div key={job.id} className="job-card-container position-relative mb-4">
-            <JobCard job={job} showDetails={false} />
-            <button
-              className="btn btn-danger position-absolute top-0 end-0 "
-              style={{ margin: '60px 80px' }}
-              onClick={() => handleDelete(job.id)}
-              title="Delete Job"
-            >
-              Delete
-            </button>
+      <div className="row">
+        {postedJobs.length > 0 ? (
+          postedJobs.map(job => (
+            <div key={job.id} className="col-12 mb-4">
+              <div className="position-relative shadow-sm border rounded p-3 bg-white">
+                <JobCard job={job} showDetails={false} />
+                <div className="text-end mt-3">
+                  <button
+                    className="btn btn-outline-danger btn-sm"
+                    onClick={() => handleDelete(job.id)}
+                    title="Delete Job"
+                  >
+                    🗑️ Delete
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))
+        ) : (
+          <div className="col-12">
+            <p className="text-center text-muted fs-5">No jobs posted yet.</p>
           </div>
-        ))
-      ) : (
-        <p className="text-center text-muted fs-5">No jobs posted yet.</p>
-      )}
+        )}
+      </div>
     </div>
   );
 };

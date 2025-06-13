@@ -76,75 +76,144 @@ const EmployeeRegister = () => {
     }
 
     return (
-        <div className='container  d-flex justify-content-center ' style={{ marginTop: '150px' }}>
-            <div className="card rounded-4 shadow-lg rounded p-5 " style={{ width: '60vw' }}>
-                <form onSubmit={handleSubmit} >
-                    <h2 className='text-center mb-5 ' style={{ fontFamily: 'revert' }}>Employee Registration Form</h2>
+        <div className='container my-5'>
+            <div className="card rounded-4 shadow-lg p-4 p-md-5 mx-auto" style={{ maxWidth: '800px' }}>
+                <form onSubmit={handleSubmit}>
+                    <h2 className='text-center mb-4' style={{ fontFamily: 'revert' }}>
+                        Employee Registration Form
+                    </h2>
 
-                    {/** Name */}
-                    <div className='d-flex justify-content-between fw-bold mb-3 '>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label" style={{ width: '400px' }}>First Name</label>
-                            <input type="text" placeholder='Enter your First Name' class="form-control p-2" id="exampleInputName" aria-describedby="nameHelp" onChange={handleChange} name="firstName" value={formData.firstName} />
+                    {/* Name */}
+                    <div className='row mb-3 fw-bold'>
+                        <div className="col-md-6 mb-3 mb-md-0">
+                            <label htmlFor="firstName" className="form-label">First Name</label>
+                            <input
+                                type="text"
+                                placeholder='Enter your First Name'
+                                className="form-control p-2"
+                                id="firstName"
+                                name="firstName"
+                                onChange={handleChange}
+                                value={formData.firstName}
+                            />
                         </div>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label" style={{ width: '400px' }}>Last Name</label>
-                            <input type="text" placeholder='Enter your Last Name' class="form-control p-2" id="exampleInputName" aria-describedby="nameHelp" onChange={handleChange} name="lastName" value={formData.lastName} />
+                        <div className="col-md-6">
+                            <label htmlFor="lastName" className="form-label">Last Name</label>
+                            <input
+                                type="text"
+                                placeholder='Enter your Last Name'
+                                className="form-control p-2"
+                                id="lastName"
+                                name="lastName"
+                                onChange={handleChange}
+                                value={formData.lastName}
+                            />
                         </div>
                     </div>
 
-                    {/** Email */}
-                    <div class="mb-3  fw-bold mb-4">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" placeholder='Enter your Email ' class="form-control p-2" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" onChange={handleChange} value={formData.email} />
+                    {/* Email */}
+                    <div className="mb-3 fw-bold">
+                        <label htmlFor="email" className="form-label">Email address</label>
+                        <input
+                            type="email"
+                            placeholder='Enter your Email'
+                            className="form-control p-2"
+                            id="email"
+                            name="email"
+                            onChange={handleChange}
+                            value={formData.email}
+                        />
                     </div>
 
-                    {/** Password */}
-                    <div className='d-flex justify-content-between mb-4  fw-bold'>
-                        <div >
-                            <label for="exampleInputPassword1" class="form-label" style={{ width: '400px' }}>Password</label>
-                            <input type="password" placeholder='Enter your Password' class="form-control p-2" id="exampleInputPassword1" name="password" onChange={handleChange} value={formData.password} />
+                    {/* Password */}
+                    <div className='row mb-3 fw-bold'>
+                        <div className="col-md-6 mb-3 mb-md-0">
+                            <label htmlFor="password" className="form-label">Password</label>
+                            <input
+                                type="password"
+                                placeholder='Enter your Password'
+                                className="form-control p-2"
+                                id="password"
+                                name="password"
+                                onChange={handleChange}
+                                value={formData.password}
+                            />
                         </div>
-                        <div >
-                            <label for="exampleInputPassword1" class="form-label" style={{ width: '400px' }}>Confirm Password</label>
-                            <input type="password" placeholder='Confirm your Password' class="form-control p-2" id="exampleInputPassword1" name="rePassword" onChange={handleChange} value={formData.rePassword} />
+                        <div className="col-md-6">
+                            <label htmlFor="rePassword" className="form-label">Confirm Password</label>
+                            <input
+                                type="password"
+                                placeholder='Confirm your Password'
+                                className="form-control p-2"
+                                id="rePassword"
+                                name="rePassword"
+                                onChange={handleChange}
+                                value={formData.rePassword}
+                            />
                         </div>
                     </div>
 
-
-                    {/** Employee Id */}
-                    <div class=" fw-bold mb-4">
-                        <label for="exampleInputPassword1" class="form-label" >Employee Id</label>
-                        <input type="text" placeholder='Enter Employee Id' class="form-control p-2" id="exampleInputPassword1" name="empId" onChange={handleChange} value={formData.empId} />
+                    {/* Employee Id */}
+                    <div className="mb-3 fw-bold">
+                        <label htmlFor="empId" className="form-label">Employee Id</label>
+                        <input
+                            type="text"
+                            placeholder='Enter Employee Id'
+                            className="form-control p-2"
+                            id="empId"
+                            name="empId"
+                            onChange={handleChange}
+                            value={formData.empId}
+                        />
                     </div>
 
-                    {/** Employee company */}
-                    <div class=" fw-bold mb-4">
-                        <label for="exampleInputPassword1" class="form-label" >Employee Company</label>
-                        <input type="text" placeholder='Enter Company Name' class="form-control p-2" id="exampleInputPassword1" name="empCompany" onChange={handleChange} value={formData.empCompany} />
+                    {/* Employee Company */}
+                    <div className="mb-3 fw-bold">
+                        <label htmlFor="empCompany" className="form-label">Employee Company</label>
+                        <input
+                            type="text"
+                            placeholder='Enter Company Name'
+                            className="form-control p-2"
+                            id="empCompany"
+                            name="empCompany"
+                            onChange={handleChange}
+                            value={formData.empCompany}
+                        />
                     </div>
 
-                    {/** Employee role */}
-                    <div class="mb-4 fw-bold ">
-                        <label for="exampleInputPassword1" class="form-label" >Employee Role</label>
-                        <input type="text" placeholder='Enter Company Role' class="form-control p-2" id="exampleInputPassword1" name="empRole" onChange={handleChange} value={formData.empRole} />
+                    {/* Employee Role */}
+                    <div className="mb-3 fw-bold">
+                        <label htmlFor="empRole" className="form-label">Employee Role</label>
+                        <input
+                            type="text"
+                            placeholder='Enter Company Role'
+                            className="form-control p-2"
+                            id="empRole"
+                            name="empRole"
+                            onChange={handleChange}
+                            value={formData.empRole}
+                        />
                     </div>
 
+                    {/* Checkbox */}
+                    <div className="form-check mb-4">
+                        <input type="checkbox" className="form-check-input" id="check1" />
+                        <label className="form-check-label" htmlFor="check1">Check me out</label>
+                    </div>
 
-                    {/** check box */}
-                    <div class="mb-5 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-                        <label class="form-check-label " for="exampleCheck1">Check me out</label>
+                    {/* Submit Button */}
+                    <div className='d-grid mb-3'>
+                        <button type="submit" className="btn btn-lg btn-primary">Register</button>
                     </div>
-                    <div >
-                        <button type="submit" class="btn btn-lg btn-primary ">Register</button>
-                    </div>
-                    <p className='text-muted text-center fs-5'>If you are already registered? Please <NavLink to="/employeelogin">Login here</NavLink> </p>
+
+                    {/* Login Link */}
+                    <p className='text-muted text-center fs-5'>
+                        Already registered? <NavLink to="/employeelogin">Login here</NavLink>
+                    </p>
                 </form>
             </div>
-
-
         </div>
+
     )
 }
 

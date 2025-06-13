@@ -4,90 +4,89 @@ import '/node_modules/bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
 
 const JobCard = ({ job, showDetails = true }) => {
-    const {
-        title, company, rating, reviews, img,
-        experience, salary, location, work_title,
-        first_skill, second_skill, third_skill, fourth_skill, fifth_skill,
-        days, id
-    } = job;
+  const {
+    title, company, rating, reviews, img,
+    experience, salary, location, work_title,
+    first_skill, second_skill, third_skill, fourth_skill, fifth_skill,
+    days, id
+  } = job;
 
-    const CardBody = () => (
-        <div className={`${styles.card} mb-3`}>
-            <div className="row g-0">
-                <div className="card-body">
-                    <div className='row align-items-center mt-3 mx-3'>
-                        <div className={`${styles.card_title} col-12 col-sm-12 col-md-10 col-lg-10`}>
-                            {title}
-                            <div className="row">
-                                <p className={`${styles.company} col-12 col-sm-12 col-md-4 col-lg-4 fw-normal`}>
-                                    {company} <i className={`${styles.star} `}>⭐</i> {rating}
-                                </p>
-                                <p className={`${styles.reviews} col-12 col-sm-12 col-md-4 col-lg-4 fw-normal`}>
-                                    {reviews} Reviews
-                                </p>
-                            </div>
-                        </div>
-                        <img src={img} alt="logo" className={`${styles.picture} col-12 col-sm-12 col-md-2 col-lg-2`} />
-                    </div>
-
-                    <div className="row">
-                        <div className={`${styles.experience} col-12 col-sm-12 col-md-2 col-lg-2 mx-4`}>
-                            <i className="bi bi-suitcase-lg"></i> {experience} Yrs
-                        </div>
-                        <div className={`${styles.salary} col-12 col-sm-12 col-md-3 col-lg-3`}>&#8377; {salary}</div>
-                        <div className={`${styles.location} col-12 col-sm-12 col-md-4 col-lg-4`}>
-                            <i className="bi bi-geo-alt"></i> {location}
-                        </div>
-                    </div>
-
-                    <div className="row">
-                        <div className={`${styles.workTitle} col-12 col-sm-12 col-md-10 col-lg-10 mx-4 mt-2`}>
-                            <i className="bi bi-journal-richtext"></i> {work_title}
-                        </div>
-                    </div>
-
-                    <div className={`${styles.skills} row mx-4 my-2`}>
-                        <div>
-                            <li>{first_skill}</li>
-                            <li>{second_skill}</li>
-                            <li>{third_skill}</li>
-                            <li>{fourth_skill}</li>
-                            <li>{fifth_skill}</li>
-                        </div>
-                    </div>
-
-                    <div className="row d-flex justify-content-between">
-                        <div className={`${styles.days} col-12 col-sm-12 col-md-2 col-lg-2 mx-4`}>
-                            {days} Days ago
-                        </div>
-                        <div className={`${styles.save} col-12 col-sm-12 col-md-2 col-lg-2 mx-3`}>
-                            <i className="bi bi-bookmark"></i> Save
-                        </div>
-                    </div>
-
-                    {showDetails && (
-                        <div className="text-end mt-3">
-                            <Link className="btn btn-primary" to={`/findjobs/${id}`}>
-                                View Details
-                            </Link>
-                        </div>
-                    )}
-                </div>
+  const CardBody = () => (
+    <div className={`${styles.jobCardContainer} mb-4 px-3 py-3`}>
+      {/* Title & Logo */}
+      <div className="row">
+        <div className="col-12 col-md-10">
+          <h5 className={`fw-bold ${styles.jobCardTitle} text-wrap`}>{title}</h5>
+          <div className="d-flex flex-wrap text-muted small">
+            <div className="me-4">
+              {company} <i className={styles.star}>⭐</i> {rating}
             </div>
+            <div>{reviews} Reviews</div>
+          </div>
         </div>
-    );
+        <div className="col-12 col-md-2 text-end mt-3 mt-md-0">
+          <img src={img} alt="logo" className="img-fluid rounded" style={{ maxHeight: '60px' }} />
+        </div>
+      </div>
 
-    return (
-        <div className={styles.container}>
-            {showDetails ? (
-                <Link className="nav-link" to={`/findjobs/${id}`}>
-                    {CardBody()}
-                </Link>
-            ) : (
-                CardBody()
-            )}
+      {/* Experience, Salary, Location */}
+      <div className="row mt-3 gy-2">
+        <div className="col-12 col-md-4">
+          <i className="bi bi-suitcase-lg"></i> {experience} Yrs
         </div>
-    );
+        <div className="col-12 col-md-4">
+          <strong>&#8377; {salary}</strong>
+        </div>
+        <div className="col-12 col-md-4 text-truncate">
+          <i className="bi bi-geo-alt"></i> {location}
+        </div>
+      </div>
+
+      {/* Work Title */}
+      <div className="mt-3">
+        <i className="bi bi-journal-richtext me-2"></i>
+        <span className="text-wrap">{work_title}</span>
+      </div>
+
+      {/* Skills */}
+      <div className="row mt-2">
+        <ul className="list-inline text-muted small d-flex flex-wrap gap-2">
+          {[first_skill, second_skill, third_skill, fourth_skill, fifth_skill].map((skill, index) =>
+            skill && <li key={index} className="list-inline-item badge bg-light text-dark">{skill}</li>
+          )}
+        </ul>
+      </div>
+
+      {/* Footer */}
+      <div className="row mt-3 align-items-center">
+        <div className="col text-muted small">{days} Days ago</div>
+        <div className="col text-end text-primary small">
+          <i className="bi bi-bookmark"></i> Save
+        </div>
+      </div>
+
+      {/* Hidden Button */}
+      {showDetails && (
+        <div className="d-none">
+          <Link className="btn btn-primary mt-3" to={`/findjobs/${id}`}>
+            View Details
+          </Link>
+        </div>
+      )}
+    </div>
+  );
+
+  return (
+    <div className={`${styles.jobCardWrapper} mb-3`}>
+      {showDetails ? (
+        <Link className="nav-link p-0" to={`/findjobs/${id}`}>
+          {CardBody()}
+        </Link>
+      ) : (
+        CardBody()
+      )}
+    </div>
+  );
 };
 
 export default JobCard;

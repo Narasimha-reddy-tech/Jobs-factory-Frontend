@@ -14,14 +14,15 @@ const Render = () => {
                     <JobCardList />
                 </div>
 
-                <div className="col-12 col-md-2 ">
+                <div className="col-12 col-lg-2 d-none d-lg-block">
                     <img
-                        className="img-fluid "
+                        className="img-fluid"
                         style={{ height: '350px', width: '100%', position: 'sticky', top: '120px' }}
                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRrU18wsGQOH8ijHVJnjDZoHZWRAe9mO_w2ncZzn1sa4Zvz9nJhOZ0RaVhTNbq1fISTwM&usqp=CAU"
                         alt="Sticky Ad"
                     />
                 </div>
+
             </div>
         </div>
     );

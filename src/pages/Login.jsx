@@ -14,7 +14,7 @@ const Login = ({ onLogin }) => {
     <div className="main w-100 h-100">
       <div
         className="container d-flex justify-content-center align-items-center"
-        style={{ height: '100vh', fontFamily: 'cursive' }}
+        style={{ height: '100vh', fontFamily: 'revert' }}
       >
         <div className="card p-5 shadow-lg my-5 rounded-4" style={{ width: '600px', height: '500px' }}>
           <h2 className="text-center fw-bold">Sign in</h2>

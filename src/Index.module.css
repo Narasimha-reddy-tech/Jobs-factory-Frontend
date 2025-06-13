@@ -176,14 +176,13 @@ padding: 0px 0px 50px 0px;
 }
 
 
-.heroSubtitle {
+.heroSubtext {
   font-family: sans-serif;
   font-weight: 400;
   line-height: 1.5;
-  font-size: 1rem; 
+  font-size: 1rem;
   margin-top: 1rem;
   margin-bottom: 1.5rem;
-  color: #333;
 }
 
 
@@ -217,3 +216,40 @@ padding: 0px 0px 50px 0px;
   }
 }
 
+@media (min-width: 768px) {
+  .heroSubtext {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .heroSubtext {
+    font-size: 1.5rem;
+  }
+}
+
+
+.jobCardContainer {
+  border: 1px solid black;
+  border-radius: 12px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+.jobCardContainer:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.jobCardTitle {
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+
+.star {
+  color: #f4c10f;
+}
+
+.jobCardWrapper {
+  overflow-x: hidden;
+  word-wrap: break-word;
+}

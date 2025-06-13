@@ -53,7 +53,7 @@ const Category = () => {
       </div>
 
       {/* Second Row */}
-      <div className="row g-3 justify-content-center mt-4">
+      <div className="row g-3 justify-content-center mt-2">
         {/* Engineering */}
         <div className="col-12 col-sm-6 col-md-4 col-lg-2">
           <div className={`card d-flex flex-row p-3 justify-content-center align-items-center ${styles.cardHover}`} style={{ width: '100%', height: '60px' }}>

@@ -10,10 +10,10 @@ const Slider = () => {
       <Marquee>
         <div className="d-flex justify-content-center my-4 align-items-center w-100">
           <img
-            src="/src/assets/Screenshot 2025-04-30 142551.png"
+            src="/assets/Screenshot 2025-04-30 142551.png"
             alt="Company Logo"
             className="img-fluid mx-3"
-            style={{ maxHeight: '80px', objectFit: 'contain'}}
+            style={{ maxHeight: '80px', objectFit: 'contain' }}
           />
         </div>
       </Marquee>

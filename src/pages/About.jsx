@@ -41,7 +41,7 @@ const About = () => {
                     <h3 className="text-info"><i className="bi bi-person-circle"></i> Founder</h3>
                     <div className="d-flex flex-column flex-md-row align-items-center mt-4 p-4 rounded shadow-sm bg-light">
                         <img
-                            src="/src/assets/WhatsApp Image 2025-03-13 at 9.57.42 AM.jpeg"
+                            src="/assets/WhatsApp Image 2025-03-13 at 9.57.42 AM.jpeg"
                             alt="Founder"
                             className="rounded-circle me-md-4 border border-3 border-primary mb-3 mb-md-0"
                             width="120"

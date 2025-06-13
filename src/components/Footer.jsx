@@ -57,12 +57,12 @@ const Footer = () => {
                             <p>Get real-time job updates on our App</p>
                             <div className="d-flex flex-column align-items-center flex-sm-row gap-3 overflow-hidden">
                                 <img
-                                    src="/src/assets/download.png"
+                                    src="/assets/download.png"
                                     alt="Google Play"
                                     style={{ maxWidth: '150px' }}
                                 />
                                 <img
-                                    src="/src/assets/download (1).png"
+                                    src="/assets/download (1).png"
                                     alt="App Store"
                                     style={{ maxWidth: '150px' }}
                                 />
